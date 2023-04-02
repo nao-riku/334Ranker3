@@ -416,7 +416,7 @@ return adaptive;
         if out != []:
             threading.Thread(target=receive, args=(out, driver,)).start()
         else:
-            if datetime.datetime.now() < end + datetime.timedelta(seconds=10):
+            if end + datetime.timedelta(seconds=10) < datetime.datetime.now():
                 break
 
 
@@ -456,7 +456,7 @@ def start():
             login_twitter(os.environ['NAME'], os.environ['PASS'], os.environ['TEL'], driver)
             if len(sys.argv) != 1:
                 start_time = datetime.datetime.now().replace(microsecond = 0) + datetime.timedelta(seconds=2)
-                end_time = datetime.datetime(start_now.year, start_now.month, start_now.day, 16, 10, 0)##times[i][0]
+                end_time = datetime.datetime(start_now.year, start_now.month, start_now.day, 16, 15, 0)##times[i][0]
             threading.Thread(target=interval, args=(start_time, end_time, driver,)).start()
             
             break
