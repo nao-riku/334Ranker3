@@ -36,7 +36,7 @@ def tweet(driver):
     global post_body, post_url
     for _ in range(5):
         try:
-            driver.get('https://twitter.com/Rank334_2/status/1642411868961796097')
+            driver.get('https://twitter.com/Rank334_2/status/1624490398730321920')
             try:
                 element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[role=textbox]")))
             except:
@@ -44,7 +44,7 @@ def tweet(driver):
                 time.sleep(1)
                 driver.find_element(By.CSS_SELECTOR, "[href='/login']").click()
                 time.sleep(20)
-                driver.get('https://twitter.com/Rank334_2/status/1642411868961796097')
+                driver.get('https://twitter.com/Rank334_2/status/1624490398730321920')
                 element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[role=textbox]")))
             time.sleep(1)
 
