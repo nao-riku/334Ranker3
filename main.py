@@ -288,7 +288,7 @@ def receive(dict, driver):
                             pass
                         if rep_text == False:
                             orig_time = TweetIdTime(int(item["status"]["data"]["in_reply_to_status_id_str"]))
-                            rep_text = "ツイート時刻: " + TimeToStr(orig_time)
+                            rep_text = "ツイート時刻：" + TimeToStr(orig_time)
 
             if rep_text != False:
                 print(item["status"]["data"]["user"]["name"])
