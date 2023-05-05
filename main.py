@@ -95,6 +95,7 @@ def login_twitter(account, password, tel, driver):
             act = ActionChains(driver)
             
             element_account = driver.find_element(By.TAG_NAME, "input")
+            element_account.send_keys("")
             for i in range(len(account)):
                 time.sleep(1)
                 act.send_keys(account[i])
