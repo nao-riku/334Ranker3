@@ -1,6 +1,7 @@
 import chromedriver_binary
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -91,14 +92,22 @@ def login_twitter(account, password, tel, driver):
             element = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.NAME, "text")))
             time.sleep(1)
             
+            act = ActionChains(driver)
+            
             element_account = driver.find_element(By.TAG_NAME, "input")
-            element_account.send_keys(account)
+            for i in range(len(account)):
+                time.sleep(1)
+                act.send_keys(account[i])
+                act.perform()
             time.sleep(2) 
             element_account.send_keys(Keys.ENTER)
             time.sleep(20)
 
             element_pass = driver.find_elements(By.TAG_NAME, "input")[1]
-            element_pass.send_keys(password)
+            for i in range(len(password)):
+                time.sleep(1)
+                act.send_keys(password[i])
+                act.perform()
             time.sleep(2)
             element_pass.send_keys(Keys.ENTER)
             time.sleep(20)
