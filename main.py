@@ -431,6 +431,7 @@ return adaptive;
 
 
 def start():
+    sys.exit(1)
     global start_now, start_time, end_time
     for _ in range(3):
         try:
