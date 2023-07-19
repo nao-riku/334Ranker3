@@ -41,17 +41,12 @@ def tweet(driver):
             try:
                 element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[role=textbox]")))
             except:
-                try:
-                    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[href='/login']")))
-                    time.sleep(1)
-                    driver.find_element(By.CSS_SELECTOR, "[href='/login']").click()
-                    time.sleep(20)
-                    driver.get('https://twitter.com/Rank334_2/status/1624490398730321920')
-                    element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[role=textbox]")))
-                except:
-                    print("exit", file=sys.stderr)
-                    sys.exit(1)
-                    print("exit2", file=sys.stderr)
+                element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[href='/login']")))
+                time.sleep(1)
+                driver.find_element(By.CSS_SELECTOR, "[href='/login']").click()
+                time.sleep(20)
+                driver.get('https://twitter.com/Rank334_2/status/1624490398730321920')
+                element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[role=textbox]")))
             time.sleep(1)
 
             element_box = driver.find_element(By.CSS_SELECTOR, "[role=textbox]")
@@ -102,26 +97,31 @@ def login_twitter(account, password, tel, driver):
             element_account = driver.find_element(By.TAG_NAME, "input")
             element_account.send_keys("")
             for i in range(len(account)):
-                time.sleep(0.1)
+                time.sleep(1)
                 act.send_keys(account[i])
                 act.perform()
             time.sleep(2) 
             element_account.send_keys(Keys.ENTER)
-            time.sleep(2)
+            time.sleep(20)
 
             element_pass = driver.find_elements(By.TAG_NAME, "input")[1]
             for i in range(len(password)):
-                time.sleep(0.1)
+                time.sleep(1)
                 act.send_keys(password[i])
-                act.perform()        
-            act.send_keys("a")
-            act.perform()
+                act.perform()
             time.sleep(2)
             element_pass.send_keys(Keys.ENTER)
-            time.sleep(2)
+            time.sleep(20)
+
+            element_tel = driver.find_elements(By.NAME, "text")
+            if len(element_tel) > 0:
+                element_tel[0].send_keys(tel)
+                time.sleep(2) 
+                element_tel[0].send_keys(Keys.ENTER)
+                time.sleep(20)
 
             driver.get('https://twitter.com/home')
-            time.sleep(2)
+            time.sleep(20)
             
             for _ in range(5):
                 for request in driver.requests:
@@ -148,7 +148,7 @@ def login_twitter(account, password, tel, driver):
                 time.sleep(0.5)
 		
             driver.get('https://twitter.com/intent/user?user_id=1')
-            time.sleep(2)
+            time.sleep(20)
             
             for _ in range(5):
                 for request in driver.requests:
@@ -176,7 +176,7 @@ def login_twitter(account, password, tel, driver):
                 time.sleep(0.5)
                 
             driver.get('https://twitter.com/search?q=%40Rank334_2&src=recent_search_click&f=live')
-            time.sleep(2)
+            time.sleep(20)
             
             for _ in range(5):
                 for request in driver.requests:
@@ -194,7 +194,7 @@ def login_twitter(account, password, tel, driver):
                 time.sleep(0.5)
 
             driver.get('https://twitter.com/notifications/mentions')
-            time.sleep(2)
+            time.sleep(20)
             
             for _ in range(5):
                 for request in driver.requests:
@@ -463,7 +463,7 @@ def start():
             start_time = times[i][0]
             end_time = times[i][1]
             
-            login_twitter("334ranking", os.environ['PASS'], os.environ['TEL'], driver)
+            login_twitter(os.environ['NAME'], os.environ['PASS'], os.environ['TEL'], driver)
             if len(sys.argv) != 1:
                 start_time = datetime.datetime.now().replace(microsecond = 0) + datetime.timedelta(seconds=2)
                 end_time = times[i][0]
@@ -471,5 +471,5 @@ def start():
             
             break
          
-start()
+threading.Thread(target=start).start()
             
