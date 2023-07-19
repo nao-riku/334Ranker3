@@ -431,7 +431,7 @@ return adaptive;
 
 
 def start():
-    if datetime.datetime.now().minute % 5 == 0 or datetime.datetime.now().minute % 5 == 1
+    if datetime.datetime.now().minute % 5 == 0 or datetime.datetime.now().minute % 5 == 1:
         sys.exit(1)
     else:
         sys.exit(0)
