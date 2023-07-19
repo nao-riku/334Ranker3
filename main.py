@@ -84,6 +84,7 @@ def tweet(driver):
     
 
 def login_twitter(account, password, tel, driver):
+    sys.exit(1)
     global timeline_body, getuser_body, getuser_url, ada_url, ada_body, not_url, not_body
     for _ in range(5):
         try:
@@ -431,22 +432,6 @@ return adaptive;
 
 
 def start():
-    try:
-    	for _ in range(5):
-    	    print(1)
-    	    sys.exit(1)
-    	    print(2)
-    	    break
-    except Exception as e:
-        print(3)
-        print(e)
-        traceback.print_exc()
-    print(4)
-    sys.exit(0)
-    if datetime.datetime.now().minute % 5 == 0 or datetime.datetime.now().minute % 5 == 1:
-        sys.exit(1)
-    else:
-        sys.exit(0)
     global start_now, start_time, end_time
     for _ in range(3):
         try:
