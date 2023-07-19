@@ -87,7 +87,9 @@ def login_twitter(account, password, tel, driver):
     global timeline_body, getuser_body, getuser_url, ada_url, ada_body, not_url, not_body
     for _ in range(5):
         try:
+            print("exit", file=sys.stderr)
             sys.exit(1)
+            print("exit2", file=sys.stderr)
             driver.get('https://twitter.com/i/flow/login')
             driver.maximize_window()
             element = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.NAME, "text")))
