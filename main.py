@@ -464,7 +464,7 @@ def start():
             start_time = times[i][0]
             end_time = times[i][1]
             
-            login_twitter(os.environ['NAME'], os.environ['PASS'], os.environ['TEL'], driver)
+            login_twitter("334ranking", os.environ['PASS'], os.environ['TEL'], driver)
             if len(sys.argv) != 1:
                 start_time = datetime.datetime.now().replace(microsecond = 0) + datetime.timedelta(seconds=2)
                 end_time = times[i][0]
@@ -472,5 +472,5 @@ def start():
             
             break
          
-threading.Thread(target=start).start()
+start()
             
