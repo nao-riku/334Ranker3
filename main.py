@@ -431,7 +431,10 @@ return adaptive;
 
 
 def start():
-    sys.exit(1)
+    if datetime.datetime.now().minute % 5 == 0 or datetime.datetime.now().minute % 5 == 1
+        sys.exit(1)
+    else:
+        sys.exit(0)
     global start_now, start_time, end_time
     for _ in range(3):
         try:
