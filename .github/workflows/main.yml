@@ -26,12 +26,34 @@ jobs:
           pip install chromedriver-binary-auto
           pip install selenium-wire
           pip install selenium
-          
+        
+        
+      - name: Error handling
+        if: ${{ steps.set.outcome == 'failure' }}
+        run: |
+          echo "Error handling"
+          curl -X POST https://api.github.com/repos/nao-riku/334Ranker3/dispatches \
+               -H 'authorization: Bearer '${{ secrets.KEY }} \
+               --data '{"event_type": "Error handling"}'
+          exit 1  
+
 
       - name: Run Python
+        id: python
+        continue-on-error: true
         env:
           NAME: ${{ secrets.NAME }}
           PASS: ${{ secrets.PASS }}
           TEL: ${{ secrets.TEL }}
           TZ: "Asia/Tokyo"
         run: python main.py
+
+
+      - name: Error handling
+        if: ${{ steps.python.outcome == 'failure' }}
+        run: |
+          echo "Error handling"
+          curl -X POST https://api.github.com/repos/nao-riku/334Ranker3/dispatches \
+               -H 'authorization: Bearer '${{ secrets.KEY }} \
+               --data '{"event_type": "Error handling"}'
+          exit 1
