@@ -441,6 +441,7 @@ def start():
 	    print(3)
         print(e)
         traceback.print_exc()
+	print(4)
     sys.exit(0)
     if datetime.datetime.now().minute % 5 == 0 or datetime.datetime.now().minute % 5 == 1:
         sys.exit(1)
