@@ -22,6 +22,8 @@ jobs:
         run: |
           sudo languagesetup -langspec ja
           sudo systemsetup -settimezone Asia/Tokyo
+          sudo apt install google-chrome-stable
+          google-chrome -version
           pip install chromedriver-binary-auto
           pip install selenium-wire
           pip install selenium
