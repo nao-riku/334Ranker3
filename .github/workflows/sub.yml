@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo languagesetup -langspec ja
           sudo systemsetup -settimezone Asia/Tokyo
-          chrome --version
+          dir "C:\Program Files (x86)\Google\Chrome\Application"
           pip install chromedriver-binary-auto
           pip install selenium-wire
           pip install selenium
