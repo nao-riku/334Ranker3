@@ -26,4 +26,5 @@ jobs:
           pip install chromedriver-binary-auto
           pip install selenium-wire
           pip install selenium
+          python main.py
           
