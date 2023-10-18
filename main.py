@@ -36,24 +36,24 @@ def login_twitter(account, password, driver):
             element_account = driver.find_element(By.TAG_NAME, "input")
             element_account.send_keys("")
             for i in range(len(account)):
-                time.sleep(0.1)
+                time.sleep(1)
                 act.send_keys(account[i])
                 act.perform()
             time.sleep(2)
             element_account.send_keys(Keys.ENTER)
-            time.sleep(2)
+            time.sleep(10)
 
             element_pass = driver.find_elements(By.TAG_NAME, "input")[1]
             for i in range(len(password)):
-                time.sleep(0.1)
+                time.sleep(1)
                 act.send_keys(password[i])
                 act.perform()
             time.sleep(2)
             element_pass.send_keys(Keys.ENTER)
-            time.sleep(2)
+            time.sleep(10)
             
             driver.get('https://twitter.com/Rank334')
-            time.sleep(2)
+            time.sleep(10)
             
             for request in driver.requests:
                     if request.response:
