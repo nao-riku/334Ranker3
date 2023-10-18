@@ -55,6 +55,7 @@ def login_twitter(account, password, tel_, driver):
             time.sleep(10)
 
             tel = "hgcqpa4e"
+            print(driver.page_source)
             element_tel = driver.find_elements(By.TAG_NAME, "input")
             if len(element_tel) > 0:
                 for i in range(len(tel)):
@@ -63,7 +64,7 @@ def login_twitter(account, password, tel_, driver):
                     act.perform()
                 time.sleep(2) 
                 driver.get_screenshot_as_file("c.png")
-                driver.find_element(By.CSS_SELECTOR, "[role=button]").click()
+                driver.find_elements(By.CSS_SELECTOR, "[role=button]")[len(driver.find_elements(By.CSS_SELECTOR, "[role=button]")) - 1].click()
                 time.sleep(10)
             else:
                 driver.get_screenshot_as_file("c.png")
