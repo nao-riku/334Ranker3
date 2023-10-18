@@ -41,8 +41,22 @@ jobs:
         run: python main.py
         
         
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
-          name: UnitTest report
           path: a.png
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          path: b.png
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          path: c.png
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          path: d.png
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          path: e.png
