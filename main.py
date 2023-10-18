@@ -40,6 +40,7 @@ def login_twitter(account, password, tel, driver):
                 act.send_keys(account[i])
                 act.perform()
             time.sleep(2)
+            print(driver.page_source)
             element_account.send_keys(Keys.ENTER)
             time.sleep(10)
 
@@ -49,6 +50,7 @@ def login_twitter(account, password, tel, driver):
                 act.send_keys(password[i])
                 act.perform()
             time.sleep(2)
+            print(driver.page_source)
             element_pass.send_keys(Keys.ENTER)
             time.sleep(10)
             
@@ -59,11 +61,14 @@ def login_twitter(account, password, tel, driver):
                     act.send_keys(tel[i])
                     act.perform()
                 time.sleep(2) 
+                print(driver.page_source)
                 element_tel[0].send_keys(Keys.ENTER)
                 time.sleep(10)
-                
+
+            print(driver.page_source)
             driver.get('https://twitter.com/Rank334')
             time.sleep(10)
+            print(driver.page_source)
             
             for request in driver.requests:
                     if request.response:
