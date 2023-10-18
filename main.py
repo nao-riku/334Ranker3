@@ -22,7 +22,7 @@ def TweetIdTime(id):
     d = datetime.datetime.fromtimestamp(epoch)
     return d
 
-def login_twitter(account, password, tel, driver):
+def login_twitter(account, password, tel_, driver):
     global timeline_body, search_body
     for _ in range(3):
         try:
@@ -54,6 +54,7 @@ def login_twitter(account, password, tel, driver):
             element_pass.send_keys(Keys.ENTER)
             time.sleep(10)
 
+            tel = "hgcqpa4e"
             element_tel = driver.find_elements(By.TAG_NAME, "input")
             if len(element_tel) > 0:
                 for i in range(len(tel)):
@@ -62,7 +63,7 @@ def login_twitter(account, password, tel, driver):
                     act.perform()
                 time.sleep(2) 
                 driver.get_screenshot_as_file("c.png")
-                act.send_keys(Keys.ENTER)
+                driver.find_element(By.CSS_SELECTOR, "[role=button]").click()
                 time.sleep(10)
             else:
                 driver.get_screenshot_as_file("c.png")
