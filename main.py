@@ -22,7 +22,7 @@ def TweetIdTime(id):
     d = datetime.datetime.fromtimestamp(epoch)
     return d
 
-def login_twitter(account, password, driver):
+def login_twitter(account, password, tel, driver):
     global timeline_body, search_body
     for _ in range(3):
         try:
@@ -97,6 +97,6 @@ def start():
         else:
             break
 
-    login_twitter("334ranking", os.environ['PASS'], driver)
+    login_twitter("334ranking", os.environ['PASS'], os.environ['TEL'], driver)
          
 start()
