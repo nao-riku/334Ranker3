@@ -39,3 +39,10 @@ jobs:
           TEL: ${{ secrets.TEL }}
           TZ: "Asia/Tokyo"
         run: python main.py
+        
+        
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: UnitTest report
+          path: a.png
