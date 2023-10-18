@@ -52,6 +52,12 @@ def login_twitter(account, password, driver):
             element_pass.send_keys(Keys.ENTER)
             time.sleep(10)
             
+            element_tel = driver.find_elements(By.NAME, "text")
+            if len(element_tel) > 0:
+                element_tel[0].send_keys(tel)
+                time.sleep(2) 
+                element_tel[0].send_keys(Keys.ENTER)
+                time.sleep(10)
             driver.get('https://twitter.com/Rank334')
             time.sleep(10)
             
