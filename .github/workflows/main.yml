@@ -36,5 +36,6 @@ jobs:
           KEY: ${{ secrets.KEY }}
           PASS: ${{ secrets.PASS }}
           ID: ${{ secrets.ID }}
+          TEL: ${{ secrets.TEL }}
           TZ: "Asia/Tokyo"
         run: python main.py
