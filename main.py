@@ -41,6 +41,7 @@ def login_twitter(account, password, tel, driver):
                 act.perform()
             time.sleep(2)
             driver.get_screenshot_as_file("a.png")
+            return
             element_account.send_keys(Keys.ENTER)
             time.sleep(10)
 
