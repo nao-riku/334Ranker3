@@ -41,7 +41,6 @@ def login_twitter(account, password, tel, driver):
                 act.perform()
             time.sleep(2)
             driver.get_screenshot_as_file("a.png")
-            return
             element_account.send_keys(Keys.ENTER)
             time.sleep(10)
 
@@ -51,10 +50,10 @@ def login_twitter(account, password, tel, driver):
                 act.send_keys(password[i])
                 act.perform()
             time.sleep(2)
-            
+            driver.get_screenshot_as_file("b.png")
             element_pass.send_keys(Keys.ENTER)
             time.sleep(10)
-            
+
             element_tel = driver.find_elements(By.NAME, "text")
             if len(element_tel) > 0:
                 for i in range(len(tel)):
@@ -62,13 +61,17 @@ def login_twitter(account, password, tel, driver):
                     act.send_keys(tel[i])
                     act.perform()
                 time.sleep(2) 
-                
+                driver.get_screenshot_as_file("c.png")
                 element_tel[0].send_keys(Keys.ENTER)
                 time.sleep(10)
+            else:
+                driver.get_screenshot_as_file("c.png")
 
-            
+            driver.get_screenshot_as_file("d.png")
+            time.sleep(3)
             driver.get('https://twitter.com/Rank334')
             time.sleep(10)
+            driver.get_screenshot_as_file("e.png")
             
             
             for request in driver.requests:
