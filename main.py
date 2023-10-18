@@ -54,10 +54,14 @@ def login_twitter(account, password, tel, driver):
             
             element_tel = driver.find_elements(By.NAME, "text")
             if len(element_tel) > 0:
-                element_tel[0].send_keys(tel)
+                for i in range(len(tel)):
+                    time.sleep(1)
+                    act.send_keys(tel[i])
+                    act.perform()
                 time.sleep(2) 
                 element_tel[0].send_keys(Keys.ENTER)
                 time.sleep(10)
+                
             driver.get('https://twitter.com/Rank334')
             time.sleep(10)
             
@@ -70,7 +74,6 @@ def login_twitter(account, password, tel, driver):
                             line_bot_api = LineBotApi(os.environ['KEY'])
                             line_bot_api.push_message(os.environ['ID'], ImageSendMessage(original_content_url=url, preview_image_url=url))        
                             line_bot_api.push_message(os.environ['ID'], TextSendMessage(text=str(datetime.datetime.now()-dt) + "前"))
-    
 
                             break
             time.sleep(0.5)
