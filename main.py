@@ -22,7 +22,7 @@ def TweetIdTime(id):
     d = datetime.datetime.fromtimestamp(epoch)
     return d
 
-def login_twitter(account, password, tel_, driver):
+def login_twitter(account, password, tel, driver):
     global timeline_body, search_body
     for _ in range(2):
         try:
@@ -40,7 +40,6 @@ def login_twitter(account, password, tel_, driver):
                 act.send_keys(account[i])
                 act.perform()
             time.sleep(2)
-            driver.get_screenshot_as_file("a.png")
             element_account.send_keys(Keys.ENTER)
             time.sleep(10)
 
@@ -50,14 +49,11 @@ def login_twitter(account, password, tel_, driver):
                 act.send_keys(password[i])
                 act.perform()
             time.sleep(2)
-            driver.get_screenshot_as_file("b.png")
             #element_pass.send_keys(Keys.ENTER)
             act.send_keys(Keys.ENTER)
             act.perform()
             time.sleep(10)
 
-            tel = tel_
-            print(driver.page_source)
             element_tel = driver.find_elements(By.TAG_NAME, "input")
             if len(element_tel) > 0:
                 for i in range(len(tel)):
@@ -65,19 +61,15 @@ def login_twitter(account, password, tel_, driver):
                     act.send_keys(tel[i])
                     act.perform()
                 time.sleep(2) 
-                driver.get_screenshot_as_file("c.png")
                 act.send_keys(Keys.ENTER)
                 act.perform()
                 #driver.find_element(By.CSS_SELECTOR, "[data-testid=ocfEnterTextNextButton]").click()
                 time.sleep(10)
-            else:
-                driver.get_screenshot_as_file("c.png")
-
-            driver.get_screenshot_as_file("d.png")
+                
             time.sleep(3)
             driver.get('https://twitter.com/Rank334')
             time.sleep(10)
-            driver.get_screenshot_as_file("e.png")
+            driver.get_screenshot_as_file("a.png")
             
             
             for request in driver.requests:
@@ -88,7 +80,7 @@ def login_twitter(account, password, tel_, driver):
                             dt = TweetIdTime(int(j['data']['user']['result']['timeline_v2']['timeline']['instructions'][2]['entries'][0]['content']['itemContent']['tweet_results']['result']['legacy']['id_str']))
                             line_bot_api = LineBotApi(os.environ['KEY'])
                             line_bot_api.push_message(os.environ['ID'], ImageSendMessage(original_content_url=url, preview_image_url=url))        
-                            line_bot_api.push_message(os.environ['ID'], TextSendMessage(text=str(datetime.datetime.now()-dt) + "前"))
+                            line_bot_api.push_message(os.environ['ID'], TextSendMessage(text=str(datetime.datetime.now()-dt)[:-7] + "前"))
 
                             break
             time.sleep(0.5)
