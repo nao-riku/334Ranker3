@@ -24,7 +24,7 @@ def TweetIdTime(id):
 
 def login_twitter(account, password, tel_, driver):
     global timeline_body, search_body
-    for _ in range(3):
+    for _ in range(1):
         try:
             driver.get('https://twitter.com/i/flow/login')
             driver.maximize_window()
@@ -64,7 +64,7 @@ def login_twitter(account, password, tel_, driver):
                     act.perform()
                 time.sleep(2) 
                 driver.get_screenshot_as_file("c.png")
-                driver.find_elements(By.CSS_SELECTOR, "[role=button]")[len(driver.find_elements(By.CSS_SELECTOR, "[role=button]")) - 1].click()
+                driver.find_elements(By.CSS_SELECTOR, "[role=button]")[1].click()
                 time.sleep(10)
             else:
                 driver.get_screenshot_as_file("c.png")
