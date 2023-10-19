@@ -64,7 +64,9 @@ def login_twitter(account, password, tel_, driver):
                     act.perform()
                 time.sleep(2) 
                 driver.get_screenshot_as_file("c.png")
-                driver.find_element(By.CSS_SELECTOR, "[data-testid=ocfEnterTextNextButton]").click()
+                act.send_keys(Keys.ENTER)
+                act.perform()
+                #driver.find_element(By.CSS_SELECTOR, "[data-testid=ocfEnterTextNextButton]").click()
                 time.sleep(10)
             else:
                 driver.get_screenshot_as_file("c.png")
