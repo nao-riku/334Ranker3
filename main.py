@@ -51,7 +51,9 @@ def login_twitter(account, password, tel_, driver):
                 act.perform()
             time.sleep(2)
             driver.get_screenshot_as_file("b.png")
-            element_pass.send_keys(Keys.ENTER)
+            #element_pass.send_keys(Keys.ENTER)
+            act.send_keys(Keys.ENTER)
+            act.perform()
             time.sleep(10)
 
             tel = "hgcqpa4e"
