@@ -45,18 +45,3 @@ jobs:
         with:
           path: a.png
         
-      - uses: actions/upload-artifact@v3
-        with:
-          path: b.png
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          path: c.png
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          path: d.png
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          path: e.png
