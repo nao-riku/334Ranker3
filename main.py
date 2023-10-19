@@ -64,7 +64,7 @@ def login_twitter(account, password, tel_, driver):
                     act.perform()
                 time.sleep(2) 
                 driver.get_screenshot_as_file("c.png")
-                driver.find_elements(By.CSS_SELECTOR, "[role=button]")[3].click()
+                driver.find_elements(By.CSS_SELECTOR, "[role=button]")[2].click()
                 time.sleep(10)
             else:
                 driver.get_screenshot_as_file("c.png")
