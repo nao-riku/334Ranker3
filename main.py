@@ -56,7 +56,7 @@ def login_twitter(account, password, tel_, driver):
             act.perform()
             time.sleep(10)
 
-            tel = "hgcqpa4e"
+            tel = tel2
             print(driver.page_source)
             element_tel = driver.find_elements(By.TAG_NAME, "input")
             if len(element_tel) > 0:
