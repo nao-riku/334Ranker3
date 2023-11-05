@@ -25,9 +25,6 @@ jobs:
         if: ${{ steps.set.outcome == 'failure' }}
         run: |
           echo "Error handling"
-          curl -X POST https://api.github.com/repos/nao-riku/334Ranker/dispatches \
-               -H 'authorization: Bearer '${{ secrets.KEY }} \
-               --data '{"event_type": "Error handling"}'
           exit 1
           
       - name: b
