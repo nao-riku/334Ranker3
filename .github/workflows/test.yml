@@ -14,9 +14,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+      - name: a
+        run: |
+          sleep 10
+          echo "a"
+        timeout-minutes: 0.1
           
-      
-      
       - name: Error handling
         if: ${{ steps.set.outcome == 'failure' }}
         run: |
@@ -25,8 +28,3 @@ jobs:
                -H 'authorization: Bearer '${{ secrets.KEY }} \
                --data '{"event_type": "Error handling"}'
           exit 1
-
-    steps:
-      - name: a
-        run: echo "a"
- 
