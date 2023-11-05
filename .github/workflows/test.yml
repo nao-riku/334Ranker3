@@ -16,9 +16,9 @@ jobs:
           python-version: '3.11'
       - name: a
         run: |
-          sleep 10
+          sleep 61
           echo "a"
-        timeout-minutes: 0.1
+        timeout-minutes: 1
           
       - name: Error handling
         if: ${{ steps.set.outcome == 'failure' }}
@@ -28,3 +28,8 @@ jobs:
                -H 'authorization: Bearer '${{ secrets.KEY }} \
                --data '{"event_type": "Error handling"}'
           exit 1
+          
+      - name: b
+        run: |
+          sleep 10
+          echo "b"
