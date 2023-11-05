@@ -15,6 +15,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: a
+        id: a
         run: |
           sleep 61
           echo "a"
@@ -22,7 +23,7 @@ jobs:
         timeout-minutes: 1
           
       - name: Error handling
-        if: ${{ steps.set.outcome == 'failure' }}
+        if: ${{ steps.a.outcome == 'failure' }}
         run: |
           echo "Error handling"
           exit 1
