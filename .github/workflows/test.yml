@@ -11,14 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: a
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - name: a
         id: a
-        run: |
-          sleep 61
-          echo "a"
         continue-on-error: true
         timeout-minutes: 1
           
