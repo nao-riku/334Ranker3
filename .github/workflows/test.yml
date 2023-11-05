@@ -18,6 +18,7 @@ jobs:
         run: |
           sleep 61
           echo "a"
+        continue-on-error: true
         timeout-minutes: 1
           
       - name: Error handling
