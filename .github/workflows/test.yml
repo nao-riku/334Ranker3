@@ -16,7 +16,9 @@ jobs:
           python-version: '3.11'
       - name: a
         id: a
-        run: sleep 61
+        run: |
+          sleep 61
+          echo "a"
         continue-on-error: true
         timeout-minutes: 1
           
