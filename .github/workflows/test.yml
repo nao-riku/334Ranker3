@@ -28,5 +28,5 @@ jobs:
           
       - name: b
         run: |
-          sleep 10
-          echo "b"
+          sleep 1
+          echo steps.a.outcome
