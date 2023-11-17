@@ -67,7 +67,7 @@ def login_twitter(account, password, tel, driver):
                 time.sleep(10)
                 
             time.sleep(3)
-            driver.get('https://twitter.com/Rank334')
+            driver.get('https://twitter.com/100ninkamieshi')
             time.sleep(10)
             driver.get_screenshot_as_file("a.png")
             
