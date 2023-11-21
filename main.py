@@ -107,6 +107,9 @@ def start():
         else:
             break
 
-    login_twitter("334ranking", os.environ['PASS'], os.environ['TEL'], driver)
+    driver.get('https://nao-riku.github.io/334Ranker3/index.html')
+    time.sleep(1)
+    driver.get_screenshot_as_file("a.png")
+    #login_twitter("334ranking", os.environ['PASS'], os.environ['TEL'], driver)
          
 start()
