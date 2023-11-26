@@ -80,6 +80,7 @@ def login_twitter(account, password, tel, driver):
                             dt = TweetIdTime(int(j['data']['user']['result']['timeline_v2']['timeline']['instructions'][2]['entries'][0]['content']['itemContent']['tweet_results']['result']['legacy']['id_str']))
                             line_bot_api = LineBotApi(os.environ['KEY'])
                             line_bot_api.push_message(os.environ['ID'], ImageSendMessage(original_content_url=url, preview_image_url=url))        
+                            line_bot_api.push_message(os.environ['ID'], TextSendMessage(text=dt.strftime('%Y/%m/%d %H:%M:%S'))
                             line_bot_api.push_message(os.environ['ID'], TextSendMessage(text=str(datetime.datetime.now()-dt)[:-7] + "前"))
 
                             break
